@@ -2,6 +2,7 @@ apply plugin: 'keytool'
 
 afterEvaluate {
   android.applicationVariants.all { variant ->
+      // FIXME: 2nd clean assembleRelease keystore not found
       if (!new File(project.buildDir, "client.keystore").exists()) {
         variant.javaCompiler.dependsOn(genkey)
       }
@@ -14,7 +15,7 @@ genkey {
         //keystore = "${project.buildDir}/client.keystore"
         //storepass = 'default'
         //keypass = 'default'
-        // TODO package name as dname
+        // TODO package name as default dname
         //dname = CN=client,OU=Figurate,O=Modularity,L=Melbourne,ST=Victoria,C=AU
         //dname = 'CN=App,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW'
 
