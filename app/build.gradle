@@ -22,14 +22,24 @@ android {
         versionName "1.0.0"
     }
     signingConfigs {
-        release {
-            storeFile file("${projectDir}/.keystore")
+        debug {
+            storeFile file("${projectDir}/.debug-keystore")
             storePassword 'changeit'
-            keyAlias 'default'
+            keyAlias 'debug'
+            keyPassword 'changeit'
+        }
+        release {
+            storeFile file("${projectDir}/.release-keystore")
+            storePassword 'changeit'
+            keyAlias 'release'
             keyPassword 'changeit'
         }
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
         release {
             minifyEnabled false
             consumerProguardFiles fileTree(dir: '.', include: '*.pro')

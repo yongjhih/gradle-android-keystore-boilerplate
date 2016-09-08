@@ -1,6 +1,6 @@
 Auto generate keystore if not exists `app/.keystore`
 
-## TODO
+## Features
 
 * Support auto generate multi-keystore
 
