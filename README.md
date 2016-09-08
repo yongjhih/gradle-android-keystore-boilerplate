@@ -17,7 +17,7 @@ buildscript {
 }
 ```
 
-* Download `keytool.gradle` into your module: [raw/master/app/keytool.gradle](raw/master/app/keytool.gradle)
+* Download `keytool.gradle` into your module: [keytool.gradle](https://github.com/yongjhih/gradle-android-keystore-boilerplate/raw/master/app/keytool.gradle)
 
 
 * Add the following line into `build.gradle` above `android { ... }`:
