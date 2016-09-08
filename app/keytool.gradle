@@ -2,7 +2,6 @@ apply plugin: 'keytool'
 
 afterEvaluate {
   android.applicationVariants.all { variant ->
-      // FIXME: 2nd clean assembleRelease keystore not found
       if (!file(project.ext.storeFile).exists()) {
         variant.javaCompiler.dependsOn(genkey)
       }
