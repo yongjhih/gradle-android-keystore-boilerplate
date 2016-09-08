@@ -1,11 +1,11 @@
 apply plugin: 'keytool'
 
 afterEvaluate {
-  android.applicationVariants.all { variant ->
-      if (!file(project.ext.storeFile).exists()) {
-        variant.javaCompiler.dependsOn(genkey)
-      }
-  }
+    android.applicationVariants.all { variant ->
+        if (!file(project.ext.storeFile).exists()) {
+            variant.javaCompiler.dependsOn(genkey)
+        }
+    }
 }
 
 genkey {
