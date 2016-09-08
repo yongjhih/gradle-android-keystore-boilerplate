@@ -1,0 +1,21 @@
+apply plugin: 'keytool'
+
+afterEvaluate {
+  android.applicationVariants.all { variant ->
+      if (!new File(project.buildDir, "client.keystore").exists()) {
+        variant.javaCompiler.dependsOn(genkey)
+      }
+  }
+}
+
+genkey {
+    options {
+        //alias = 'default'
+        //keystore = "${project.buildDir}/client.keystore"
+        //storepass = 'default'
+        //keypass = 'default'
+        // TODO package name as dname
+        //dname = CN=client,OU=Figurate,O=Modularity,L=Melbourne,ST=Victoria,C=AU
+        //dname = 'CN=App,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW'
+    }
+}

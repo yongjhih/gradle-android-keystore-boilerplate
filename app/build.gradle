@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'org.figurate:gradle-keytool-plugin:1.0.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.github.yongjhih.android.app"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.0"
+    }
+    signingConfigs {
+        release {
+            storeFile file("${project.buildDir}/client.keystore")
+            storePassword 'changeit'
+            keyAlias 'default'
+            keyPassword 'changeit'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles fileTree(dir: '.', include: '*.pro')
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+apply from: 'keytool.gradle'
