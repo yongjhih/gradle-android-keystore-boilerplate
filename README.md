@@ -6,7 +6,7 @@ Basically, add 2 lines only.
 
 * Add keytool plugin
 
-```
+```gradle
 buildscript {
     repositories {
         jcenter()
@@ -22,11 +22,26 @@ buildscript {
 
 * Add the following line into `build.gradle` above `android { ... }`:
 
-```
+```gradle
 apply from: 'keytool.gradle'
 ```
 
 That's it.
+
+## Configuration
+
+
+dname:
+
+```gradle
+android {
+    signingConfigs {
+        release {
+            genkey.options.dname = "CN=Release,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW"
+        }
+    }
+}
+```
 
 ## Features
 
