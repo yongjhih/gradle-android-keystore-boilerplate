@@ -9,6 +9,7 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
+apply from: 'keytool.gradle'
 
 android {
     compileSdkVersion 23
@@ -27,12 +28,14 @@ android {
             storePassword 'changeit'
             keyAlias  "${defaultConfig.applicationId}-debug"
             keyPassword 'changeit'
+            genkey.options.dname = "CN=Debug,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW"
         }
         release {
             storeFile file("${projectDir}/.release-keystore")
             storePassword 'changeit'
             keyAlias  "${defaultConfig.applicationId}-release"
             keyPassword 'changeit'
+            genkey.options.dname = "CN=Release,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW"
         }
     }
     buildTypes {
@@ -55,5 +58,3 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
-
-apply from: 'keytool.gradle'

@@ -20,7 +20,7 @@ buildscript {
 * Download `keytool.gradle` into your module: [raw/master/app/keytool.gradle](raw/master/app/keytool.gradle)
 
 
-* Append the following line into `build.gradle`:
+* Add the following line into `build.gradle` above `android { ... }`:
 
 ```
 apply from: 'keytool.gradle'
