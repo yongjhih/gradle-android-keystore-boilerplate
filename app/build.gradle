@@ -10,6 +10,12 @@ buildscript {
 
 apply plugin: 'com.android.application'
 
+project.ext {
+    storePassword = 'changeit'
+    keyAlias = 'default'
+    keyPassword = 'changeit'
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -24,9 +30,9 @@ android {
     signingConfigs {
         release {
             storeFile file("${project.buildDir}/client.keystore")
-            storePassword 'changeit'
-            keyAlias 'default'
-            keyPassword 'changeit'
+            storePassword project.ext.storePassword
+            keyAlias project.ext.keyAlias
+            keyPassword project.ext.keyPassword
         }
     }
     buildTypes {
@@ -46,4 +52,8 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
 
+// Depends on
+// project.ext.keyAlias
+// project.ext.storePassword
+// project.ext.keyPassword
 apply from: 'keytool.gradle'

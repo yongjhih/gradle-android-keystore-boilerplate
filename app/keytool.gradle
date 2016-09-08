@@ -17,5 +17,9 @@ genkey {
         // TODO package name as dname
         //dname = CN=client,OU=Figurate,O=Modularity,L=Melbourne,ST=Victoria,C=AU
         //dname = 'CN=App,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW'
+
+        alias = project.ext.keyAlias
+        storepass = project.ext.storePassword
+        keypass = project.ext.keyPassword
     }
 }
