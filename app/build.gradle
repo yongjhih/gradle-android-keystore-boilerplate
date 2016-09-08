@@ -25,13 +25,13 @@ android {
         debug {
             storeFile file("${projectDir}/.debug-keystore")
             storePassword 'changeit'
-            keyAlias 'debug'
+            keyAlias  "${defaultConfig.applicationId}-debug"
             keyPassword 'changeit'
         }
         release {
             storeFile file("${projectDir}/.release-keystore")
             storePassword 'changeit'
-            keyAlias 'release'
+            keyAlias  "${defaultConfig.applicationId}-release"
             keyPassword 'changeit'
         }
     }
