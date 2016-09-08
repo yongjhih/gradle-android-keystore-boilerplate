@@ -11,6 +11,7 @@ buildscript {
 apply plugin: 'com.android.application'
 
 project.ext {
+    storeFile = "${project.buildDir}/client.keystore"
     storePassword = 'changeit'
     keyAlias = 'default'
     keyPassword = 'changeit'
@@ -29,7 +30,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file("${project.buildDir}/client.keystore")
+            storeFile file(project.ext.storeFile)
             storePassword project.ext.storePassword
             keyAlias project.ext.keyAlias
             keyPassword project.ext.keyPassword
@@ -53,6 +54,7 @@ dependencies {
 }
 
 // Depends on
+// project.ext.storeFile
 // project.ext.keyAlias
 // project.ext.storePassword
 // project.ext.keyPassword
