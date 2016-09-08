@@ -1,7 +1,5 @@
 Auto generate keystore if not exists `app/.keystore`
 
-NOTICE: Please change `project.ext.storeFile` if you want to persist keystore avoid keystore be deleted by `./gradlew clean`
-
 ## TODO
 
 * Support auto generate multi-keystore
