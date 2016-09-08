@@ -5,22 +5,9 @@ afterEvaluate {
         if (!file(project.ext.storeFile).exists()) {
             variant.javaCompiler.dependsOn(genkey)
         }
-    }
-}
-
-genkey {
-    options {
-        //alias = 'default'
-        //keystore = "${project.buildDir}/client.keystore"
-        //storepass = 'default'
-        //keypass = 'default'
-        // TODO package name as default dname
-        //dname = CN=client,OU=Figurate,O=Modularity,L=Melbourne,ST=Victoria,C=AU
-        //dname = 'CN=App,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW'
-
-        keystore = project.ext.storeFile
-        alias = project.ext.keyAlias
-        storepass = project.ext.storePassword
-        keypass = project.ext.keyPassword
+        genkey.options.keystore = variant.signingConfig.storeFile
+        genkey.options.alias = variant.signingConfig.keyAlias
+        genkey.options.storepass = variant.signingConfig.storePassword
+        genkey.options.keypass = variant.signingConfig.keyPassword
     }
 }
