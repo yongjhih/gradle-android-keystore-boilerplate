@@ -1,6 +1,6 @@
 Auto generate keystore if not exists.
 
-## Usage
+## Installation
 
 Basically, add 2 lines only.
 
@@ -27,8 +27,33 @@ apply from: 'keytool.gradle'
 
 That's it.
 
-## Configuration
+## Test
 
+Enable regular signing and release build:
+
+```gradle
+android {
+    signingConfigs {
+        release {
+            storeFile file("${projectDir}/.release-keystore")
+            storePassword 'changeit'
+            keyAlias  "${defaultConfig.applicationId}-release"
+            keyPassword 'changeit'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+```
+
+```sh
+./gradlew assembleRelease
+```
+
+## Configuration
 
 dname:
 
