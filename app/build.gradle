@@ -24,14 +24,14 @@ android {
     }
     signingConfigs {
         debug {
-            storeFile file("${projectDir}/.debug-keystore")
+            storeFile file("${projectDir}/.debug.keystore")
             storePassword 'changeit'
             keyAlias  "${defaultConfig.applicationId}-debug"
             keyPassword 'changeit'
             genkey.options.dname = "CN=Debug,OU=Android,O=GitHub,L=Taipei,ST=Taiwan,C=TW"
         }
         release {
-            storeFile file("${projectDir}/.release-keystore")
+            storeFile file("${projectDir}/.release.keystore")
             storePassword 'changeit'
             keyAlias  "${defaultConfig.applicationId}-release"
             keyPassword 'changeit'
