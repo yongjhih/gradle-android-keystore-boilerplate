@@ -35,7 +35,7 @@ Enable regular signing and release build:
 android {
     signingConfigs {
         release {
-            storeFile file("${projectDir}/.release-keystore")
+            storeFile file("${projectDir}/.release.keystore")
             storePassword 'changeit'
             keyAlias  "${defaultConfig.applicationId}-release"
             keyPassword 'changeit'
